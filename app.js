@@ -13,6 +13,7 @@ var jlistRouter = require('./routes/JList');
 var app = express();
 
 let test = "git";
+/* We use pug here */
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+/* Format with .css */
 app.use('/css',express.static(__dirname + "/node_modules/bootstrap/dist/css"));
 
 app.use('/', indexRouter);
@@ -32,9 +33,9 @@ app.use('/users', usersRouter);
 app.use('/languages', languagesRouter);
 app.use('/users/json_list', jlistRouter);
 
-
+/* First test */
 app.get("/test",(request,response)=>{
-  response.send("This one is a testing route");
+  response.send("Probando probando 1 2.... 1 2 probando si si...");
 });
 
 

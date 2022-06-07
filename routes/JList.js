@@ -3,11 +3,12 @@ var router = express.Router();
 
 const jlist = require('../services/JList');
 
-/* GET JList listing. */
+/* This is the cote to get the Jlist */
 router.get('/', async function(req, res, next) {
   try{
       res.json(await jlist.getMultiple(req.query.page));
   } catch(err){
+    /* Error Message */
     console.error('Error' + err.message);
     next(err);
   }

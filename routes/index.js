@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* We want to send a message in this index */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', message: "The students of 5-B are smarter that 5-A or no?"});
+  res.render('index', { title: 'Express', message: "wnas noshes,si les llego el mensaje? xD"});
 });
 
 module.exports = router;
