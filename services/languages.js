@@ -18,7 +18,65 @@ async function getMultiple(page = 1){
         meta
     }
 }
+/* CODE IN CLASS */
+async function update(id,language){
+    const result = await db.query(
+    `UPDATE languages
+    SET 
+    name = '${language.name}',
+    description = '${language.description}',
+    year = ${language.year}
+    WHERE id = ${id}
+    `
+);
+    let message = "Erro in updating language";
+    if (result.affectedRows){
+        message = "A language has been updated!";
+    }
+
+    return { message }
+};
+
+async function create(language){
+    console.log(`INSERT INTO languages
+    (name,description,year)
+    VALUES
+    ('${language.name}','${language.description}',${language.year})
+    `);
+
+    const result = await db.query(
+        `INSERT INTO languages (name,description,year) VALUES
+        ('${language.name}','${language.description}',${language.year})
+        `
+    );
+
+    let message = "Erro in creating programming language";
+    if (result.affectedRows){
+        message = "A new language has been added!";
+
+    }
+
+    return { message }
+}
+async function remove(id){
+    const result = await db.query(
+        `DELETE FROM languages WHERE id = ${id}
+        `
+    );
+
+    let message = "Erro in deleting programming language";
+    if (result.affectedRows){
+        message = "A new language has been deleted!";
+
+    }
+
+    return { message }
+}
+
 
 module.exports = {
-    getMultiple
-}
+    getMultiple,
+    create,
+    update,
+    remove
+};
