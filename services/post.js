@@ -17,6 +17,18 @@ async function getPosts(page = 1){
             data,meta
     }
 }
+    async function getPostchema(page = 1){
+        const offset = helper.getOffset(page,config.listPerPage);
+        const rows = await db.query(
+            `SELECT * FROM post WHERE user = chemita; ${offset},${config.listPerPage}
+            `
+            ); 
+            const data = helper.emptyOrRows(rows);
+            const meta = (page);
+            return {
+                data,meta
+        }
+}
 
 
 
