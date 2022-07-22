@@ -1,43 +1,41 @@
-/* First work */
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var cors = require('cors');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var languagesRouter = require('./routes/languages');
-var jlistRouter = require('./routes/JList');
+var lenguagesRouter = require('./routes/lenguages');
+var postsRouter = require('./routes/post');
+var commentsRouter = require('./routes/comments');
+
+
 
 
 var app = express();
-
-let test = "git";
-/* We use pug here */
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-/* Format with .css */
-app.use('/css',express.static(__dirname + "/node_modules/bootstrap/dist/css"));
+
+app.use('/css',express.static(__dirname +"/node_modules/bootstrap/dist/css"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/languages', languagesRouter);
-app.use('/users/json_list', jlistRouter);
-
-/* First test */
-app.get("/test",(request,response)=>{
-  response.send("Probando probando 1 2.... 1 2 probando si si...");
-});
+app.use('/lenguages',lenguagesRouter);
+app.use('/post', postsRouter);
+app.use('/comments', commentsRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,11 +1,11 @@
 const config = {
     db: {
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "clientserver"
+        host:"localhost",
+        user:"root",
+        password:"",
+        database:"clientserver"
     },
-    listPerPage: 10
+    listPerPage:10
 }
 
 module.exports = config;
