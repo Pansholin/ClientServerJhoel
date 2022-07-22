@@ -16,5 +16,18 @@
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
     "pug": "^3.0.2"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pansholin/ClientServerJhoel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pansholin/ClientServerJhoel/issues"
+  },
+  "homepage": "https://github.com/Pansholin/ClientServerJhoel#readme",
+  "description": ""
 }
